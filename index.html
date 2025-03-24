@@ -1,0 +1,1786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechGadget Pro - Ultimate Tech Experience</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    h1, h2, h3, h4 {
+      color: #ff6f61;
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    /* Header Styles */
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ff6f61;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav a {
+      color: #fff;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+
+    nav a:hover {
+      color: #ff6f61;
+      background: rgba(255, 111, 97, 0.1);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(26, 26, 26, 0.85), rgba(44, 62, 80, 0.85)), 
+                  url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center/cover;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 30px;
+      animation: fadeIn 1.5s ease-out;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      animation: fadeIn 2s ease-out;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ff6f61;
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 111, 97, 0.4);
+      animation: bounce 2s infinite;
+    }
+
+    .cta-button:hover {
+      background: #ff4a3d;
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
+    }
+
+    /* About Section */
+    .about {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .about-content {
+      display: flex;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-image {
+      flex: 1;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.5s ease;
+    }
+
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Features Section */
+    .features {
+      background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255, 111, 97, 0.2);
+      border-radius: 50%;
+    }
+
+    .feature-icon img {
+      width: 50px;
+      height: 50px;
+    }
+
+    /* Products Section */
+    .products {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-image {
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.1);
+    }
+
+    .product-info {
+      padding: 25px;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #ff6f61;
+      margin: 15px 0;
+    }
+
+    .product-rating {
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background: #ff6f61;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background: #ff4a3d;
+      transform: translateY(-3px);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255, 255, 255, 0.15);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .author-image {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+
+    .author-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .author-info h4 {
+      margin-bottom: 5px;
+    }
+
+    .author-info p {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Purchase Section */
+    .purchase {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .purchase-container {
+      display: flex;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .product-display {
+      flex: 1;
+      position: relative;
+    }
+
+    .product-main-image {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .product-thumbnails {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .product-thumbnail {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .product-thumbnail:hover {
+      transform: scale(1.1);
+      border-color: #ff6f61;
+    }
+
+    .product-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-details {
+      flex: 1;
+    }
+
+    .product-title {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .product-description {
+      margin-bottom: 25px;
+    }
+
+    .product-price-large {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ff6f61;
+      margin: 20px 0;
+    }
+
+    .product-specs {
+      margin-bottom: 30px;
+    }
+
+    .spec-item {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    .spec-label {
+      font-weight: 600;
+      width: 150px;
+    }
+
+    /* Payment Section */
+    .payment-methods {
+      margin: 40px 0;
+    }
+
+    .payment-options {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .payment-option {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .payment-option:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .payment-option.active {
+      background: rgba(255, 111, 97, 0.3);
+      border: 1px solid #ff6f61;
+    }
+
+    .payment-option img {
+      width: 40px;
+      height: auto;
+    }
+
+    .payment-form {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 20px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    .purchase-button {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 20px;
+    }
+
+    .purchase-button:hover {
+      background: #ff4a3d;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(255, 111, 97, 0.4);
+    }
+
+    /* Tech Blog Section */
+    .blog {
+      background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .blog-image {
+      height: 200px;
+      overflow: hidden;
+    }
+
+    .blog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .blog-card:hover .blog-image img {
+      transform: scale(1.1);
+    }
+
+    .blog-content {
+      padding: 25px;
+    }
+
+    .blog-date {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 10px;
+    }
+
+    .blog-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .blog-excerpt {
+      margin-bottom: 20px;
+    }
+
+    .read-more {
+      color: #ff6f61;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Community Forum Section */
+    .forum {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .forum-container {
+      display: flex;
+      gap: 50px;
+    }
+
+    .forum-discussions {
+      flex: 2;
+    }
+
+    .forum-sidebar {
+      flex: 1;
+    }
+
+    .discussion-list {
+      margin-top: 30px;
+    }
+
+    .discussion-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+
+    .discussion-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: translateY(-5px);
+    }
+
+    .discussion-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .discussion-author {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 15px;
+    }
+
+    .discussion-author img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .discussion-info h4 {
+      margin-bottom: 5px;
+    }
+
+    .discussion-info p {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .discussion-title {
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+
+    .discussion-stats {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    .sidebar-widget {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+    }
+
+    .widget-title {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .popular-topics li {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .popular-topics a {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .popular-topics a:hover {
+      color: #ff6f61;
+    }
+
+    /* Tech Support Section */
+    .support {
+      background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+    }
+
+    .support-container {
+      display: flex;
+      gap: 50px;
+    }
+
+    .support-form {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .support-form h3 {
+      margin-bottom: 30px;
+    }
+
+    .support-form textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 1rem;
+      min-height: 150px;
+      margin-bottom: 20px;
+    }
+
+    .support-info {
+      flex: 1;
+    }
+
+    .faq-list {
+      margin-top: 30px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .faq-question {
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      margin-top: 15px;
+    }
+
+    /* Developer Tools Section */
+    .developer {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    .developer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .developer-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+
+    .developer-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .developer-icon {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 111, 97, 0.2);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .developer-icon img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .developer-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+
+    .download-button {
+      display: inline-block;
+      background: #ff6f61;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: 600;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .download-button:hover {
+      background: #ff4a3d;
+      transform: translateY(-3px);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+    }
+
+    .contact-container {
+      display: flex;
+      gap: 50px;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-details {
+      margin-top: 30px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 25px;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 111, 97, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 20px;
+      flex-shrink: 0;
+    }
+
+    .contact-icon img {
+      width: 25px;
+      height: 25px;
+    }
+
+    .contact-form {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 20px;
+      backdrop-filter: blur(5px);
+    }
+
+    .contact-form h3 {
+      margin-bottom: 30px;
+    }
+
+    /* Footer */
+    footer {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 60px 0 30px;
+    }
+
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ff6f61;
+      margin-bottom: 20px;
+    }
+
+    .footer-about p {
+      margin-bottom: 20px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background: #ff6f61;
+      transform: translateY(-5px);
+    }
+
+    .footer-links h4 {
+      margin-bottom: 25px;
+      font-size: 1.3rem;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 15px;
+    }
+
+    .footer-links a {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ff6f61;
+    }
+
+    .footer-newsletter p {
+      margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+      display: flex;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 12px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px 0 0 5px;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .newsletter-form button {
+      background: #ff6f61;
+      color: #fff;
+      border: none;
+      padding: 0 20px;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .newsletter-form button:hover {
+      background: #ff4a3d;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .about-content,
+      .purchase-container,
+      .forum-container,
+      .support-container,
+      .contact-container {
+        flex-direction: column;
+      }
+      
+      .product-display,
+      .product-details,
+      .support-form,
+      .support-info {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .features-grid,
+      .products-grid,
+      .testimonials-grid,
+      .blog-grid,
+      .developer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container header-container">
+      <div class="logo">TechGadget Pro</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#purchase">Shop</a></li>
+          <li><a href="#blog">Tech Blog</a></li>
+          <li><a href="#forum">Community</a></li>
+          <li><a href="#support">Support</a></li>
+          <li><a href="#developer">Developer</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Experience the Future of Technology</h1>
+        <p>TechGadget Pro is the most advanced gadget you'll ever own. Sleek, powerful, and designed for the modern lifestyle. Our cutting-edge technology will revolutionize the way you interact with the digital world.</p>
+        <a href="#purchase" class="cta-button">Get Yours Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2>About TechGadget Pro</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded in 2015, TechGadget Pro has quickly risen to become a leader in innovative technology solutions. Our team of engineers, designers, and tech enthusiasts are dedicated to creating products that push the boundaries of what's possible.</p>
+          <p>We believe technology should be accessible, intuitive, and transformative. That's why every TechGadget Pro product undergoes rigorous testing and refinement to ensure it meets our high standards of quality and performance.</p>
+          <p>Our mission is to bridge the gap between cutting-edge technology and everyday life, creating devices that enhance productivity, creativity, and entertainment for users around the world.</p>
+        </div>
+        <div class="about-image">
+          <img src="p.webp" alt="TechGadget Pro Team">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <h2>Why Choose Our Products?</h2>
+      <p>TechGadget Pro devices are packed with innovative features designed to enhance your digital experience. Here's what sets us apart:</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132693.png" alt="Performance">
+          </div>
+          <h3>Blazing Fast Performance</h3>
+          <p>Powered by our proprietary QuantumCore processors, our devices deliver unmatched speed and responsiveness for all your computing needs.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132699.png" alt="Display">
+          </div>
+          <h3>Stunning 4K Display</h3>
+          <p>Our TrueColor 4K OLED displays offer vibrant colors, deep blacks, and crystal-clear resolution for an immersive viewing experience.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132701.png" alt="Battery">
+          </div>
+          <h3>All-Day Battery Life</h3>
+          <p>With our revolutionary PowerMax battery technology, enjoy up to 36 hours of continuous use on a single charge.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132697.png" alt="Security">
+          </div>
+          <h3>Advanced Security</h3>
+          <p>Our multi-layered security system with facial recognition and fingerprint scanning keeps your data safe and secure.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132703.png" alt="Connectivity">
+          </div>
+          <h3>Seamless Connectivity</h3>
+          <p>With 5G, Wi-Fi 6, and Bluetooth 5.2, stay connected faster and more reliably than ever before.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/3132/3132695.png" alt="Design">
+          </div>
+          <h3>Sleek, Ergonomic Design</h3>
+          <p>Crafted from premium materials with attention to detail, our devices are as beautiful as they are functional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <div class="container">
+      <h2>Our Product Lineup</h2>
+      <p>Explore our range of cutting-edge devices designed for every need and lifestyle.</p>
+      <div class="products-grid">
+        <div class="product-card">
+          <div class="product-image">
+            <img src="p.webp" alt="TechGadget Pro X">
+          </div>
+          <div class="product-info">
+            <h3>TechGadget Pro X</h3>
+            <p>Our flagship device with the latest QuantumCore X processor and 6.7" TrueColor display.</p>
+            <div class="product-rating">★★★★★ (4.9/5.0)</div>
+            <div class="product-price">$999.99</div>
+            <a href="#purchase" class="buy-button">Buy Now</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="pa.webp" alt="TechGadget Pro Air">
+          </div>
+          <div class="product-info">
+            <h3>TechGadget Pro Air</h3>
+            <p>Ultra-lightweight with all-day battery life and 5.8" edge-to-edge display.</p>
+            <div class="product-rating">★★★★☆ (4.7/5.0)</div>
+            <div class="product-price">$799.99</div>
+            <a href="#purchase" class="buy-button">Buy Now</a>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-image">
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1012&q=80" alt="TechGadget Pro Max">
+          </div>
+          <div class="product-info">
+            <h3>TechGadget Pro Max</h3>
+            <p>Professional-grade performance with 7.2" display and advanced camera system.</p>
+            <div class="product-rating">★★★★★ (4.8/5.0)</div>
+            <div class="product-price">$1,199.99</div>
+            <a href="#purchase" class="buy-button">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <h2>What Our Customers Say</h2>
+      <p>Don't just take our word for it. Here's what TechGadget Pro users have to say about their experience.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "I've been using the TechGadget Pro X for three months now, and it's completely transformed how I work. The battery life is incredible, and the display is simply stunning. Worth every penny!"
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Johnson">
+            </div>
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Graphic Designer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "As a tech reviewer, I've tested hundreds of devices, but the TechGadget Pro Max stands out for its perfect balance of performance and design. The camera system is particularly impressive."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen">
+            </div>
+            <div class="author-info">
+              <h4>Michael Chen</h4>
+              <p>Tech Reviewer</p>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-text">
+            "I was skeptical at first, but after two weeks with the TechGadget Pro Air, I'm completely sold. It's so lightweight yet powerful, and the battery lasts through my entire workday with ease."
+          </div>
+          <div class="testimonial-author">
+            <div class="author-image">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+            </div>
+            <div class="author-info">
+              <h4>Emily Rodriguez</h4>
+              <p>Marketing Executive</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Purchase Section -->
+  <section id="purchase" class="purchase">
+    <div class="container">
+      <h2>Get Your TechGadget Pro Today</h2>
+      <div class="purchase-container">
+        <div class="product-display">
+          <img src="p.webp" alt="TechGadget Pro X" class="product-main-image">
+          <div class="product-thumbnails">
+            <div class="product-thumbnail">
+              <img src="p.webp" alt="TechGadget Pro X Front">
+            </div>
+            <div class="product-thumbnail">
+              <img src="ps.webp" alt="TechGadget Pro X Back">
+            </div>
+            <div class="product-thumbnail">
+              <img src="ps.webp" alt="TechGadget Pro X Side">
+            </div>
+          </div>
+        </div>
+        <div class="product-details">
+          <h2 class="product-title">TechGadget Pro X</h2>
+          <div class="product-rating">★★★★★ (4.9/5.0)</div>
+          <p class="product-description">Our flagship device featuring the revolutionary QuantumCore X processor, 6.7" TrueColor 4K OLED display, and all-day battery life. Experience the pinnacle of mobile technology.</p>
+          <div class="product-price-large">$999.99</div>
+          <div class="product-specs">
+            <h4>Key Specifications:</h4>
+            <div class="spec-item">
+              <span class="spec-label">Processor:</span>
+              <span>QuantumCore X (3.2GHz octa-core)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Display:</span>
+              <span>6.7" TrueColor 4K OLED (120Hz)</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Memory:</span>
+              <span>12GB RAM, 256GB/512GB storage</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Camera:</span>
+              <span>Triple 48MP + 12MP + 8MP rear, 32MP front</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">Battery:</span>
+              <span>5000mAh with PowerMax fast charging</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-label">OS:</span>
+              <span>TechOS 3.0 (Android 13 compatible)</span>
+            </div>
+          </div>
+          <div class="payment-methods">
+            <h4>Select Payment Method:</h4>
+            <div class="payment-options">
+              <div class="payment-option active" onclick="selectPaymentMethod('visa')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa">
+                <span>Visa</span>
+              </div>
+              <div class="payment-option" onclick="selectPaymentMethod('mastercard')">
+                <img src="mastercard.png" alt="Mastercard">
+                <span>Mastercard</span>
+              </div>
+              <div class="payment-option" onclick="selectPaymentMethod('paypal')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal">
+                <span>PayPal</span>
+              </div>
+              <div class="payment-option" onclick="selectPaymentMethod('verve')">
+                <img src="verve.png" alt="Verve">
+                <span>Verve</span>
+              </div>
+              <div class="payment-option" onclick="selectPaymentMethod('opay')">
+                <img src="opay.png" alt="Opay">
+                <span>Opay</span>
+              </div>
+              <div class="payment-option" onclick="selectPaymentMethod('crypto')">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Bitcoin.svg" alt="Crypto">
+                <span>Crypto</span>
+              </div>
+            </div>
+            <div class="payment-form">
+              <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="expiry-date">Expiry Date</label>
+                  <input type="text" id="expiry-date" placeholder="MM/YY">
+                </div>
+                <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" id="cvv" placeholder="123">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="card-name">Name on Card</label>
+                <input type="text" id="card-name" placeholder="John Doe">
+              </div>
+              <button type="button" class="purchase-button" onclick="processPayment()">Complete Purchase</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Blog Section -->
+  <section id="blog" class="blog">
+    <div class="container">
+      <h2>TechGadget Pro Blog</h2>
+      <p>Stay updated with the latest in technology, product tips, and industry insights from our team of experts.</p>
+      <div class="blog-grid">
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Future of Tech">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">June 15, 2024</div>
+            <h3 class="blog-title">The Future of Mobile Technology: What to Expect in 2025</h3>
+            <p class="blog-excerpt">Explore the groundbreaking technologies that will shape the mobile industry in the coming year, from foldable displays to AI-powered assistants.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="p.webp" alt="Productivity Tips">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">June 8, 2024</div>
+            <h3 class="blog-title">10 Productivity Hacks Using Your TechGadget Pro</h3>
+            <p class="blog-excerpt">Discover how to maximize your efficiency with these expert tips and hidden features of your TechGadget Pro device.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-image">
+            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1012&q=80" alt="Camera Guide">
+          </div>
+          <div class="blog-content">
+            <div class="blog-date">June 1, 2024</div>
+            <h3 class="blog-title">Mastering the TechGadget Pro Camera System</h3>
+            <p class="blog-excerpt">A comprehensive guide to capturing professional-quality photos and videos with your TechGadget Pro's advanced camera features.</p>
+            <a href="#" class="read-more">Read More →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Community Forum Section -->
+  <section id="forum" class="forum">
+    <div class="container">
+      <h2>TechGadget Pro Community</h2>
+      <p>Join our vibrant community of tech enthusiasts, share ideas, ask questions, and get the most out of your devices.</p>
+      <div class="forum-container">
+        <div class="forum-discussions">
+          <h3>Latest Discussions</h3>
+          <div class="discussion-list">
+            <div class="discussion-card">
+              <div class="discussion-header">
+                <div class="discussion-author">
+                  <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="User">
+                </div>
+                <div class="discussion-info">
+                  <h4>Battery Life Optimization</h4>
+                  <p>Posted by Alex Thompson • 2 hours ago</p>
+                </div>
+              </div>
+              <h4 class="discussion-title">Best practices for maximizing battery life on TechGadget Pro X</h4>
+              <p>I've been experimenting with different settings to extend battery life. Here are my findings...</p>
+              <div class="discussion-stats">
+                <span>12 Replies</span>
+                <span>45 Views</span>
+              </div>
+            </div>
+            <div class="discussion-card">
+              <div class="discussion-header">
+                <div class="discussion-author">
+                  <img src="https://randomuser.me/api/portraits/women/63.jpg" alt="User">
+                </div>
+                <div class="discussion-info">
+                  <h4>Accessory Recommendations</h4>
+                  <p>Posted by Maria Garcia • 1 day ago</p>
+                </div>
+              </div>
+              <h4 class="discussion-title">What are your favorite TechGadget Pro accessories?</h4>
+              <p>Looking for recommendations for cases, screen protectors, and other must-have accessories...</p>
+              <div class="discussion-stats">
+                <span>24 Replies</span>
+                <span>112 Views</span>
+              </div>
+            </div>
+            <div class="discussion-card">
+              <div class="discussion-header">
+                <div class="discussion-author">
+                  <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="User">
+                </div>
+                <div class="discussion-info">
+                  <h4>Feature Request</h4>
+                  <p>Posted by David Kim • 3 days ago</p>
+                </div>
+              </div>
+              <h4 class="discussion-title">What features would you like to see in the next TechOS update?</h4>
+              <p>Let's compile a list of the most requested features for the development team...</p>
+              <div class="discussion-stats">
+                <span>37 Replies</span>
+                <span>189 Views</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="forum-sidebar">
+          <div class="sidebar-widget">
+            <h4 class="widget-title">Popular Topics</h4>
+            <ul class="popular-topics">
+              <li><a href="#">TechGadget Pro X Tips and Tricks</a></li>
+              <li><a href="#">Troubleshooting Common Issues</a></li>
+              <li><a href="#">Official Software Updates</a></li>
+              <li><a href="#">Photography Techniques</a></li>
+              <li><a href="#">Accessory Reviews</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-widget">
+            <h4 class="widget-title">Community Stats</h4>
+            <p>15,892 Members</p>
+            <p>3,456 Discussions</p>
+            <p>12,789 Replies</p>
+            <a href="#" class="cta-button" style="display: inline-block; margin-top: 15px;">Join Community</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Support Section -->
+  <section id="support" class="support">
+    <div class="container">
+      <h2>Tech Support</h2>
+      <p>Need help with your TechGadget Pro? Our support team is here to assist you with any questions or issues.</p>
+      <div class="support-container">
+        <div class="support-form">
+          <h3>Contact Support</h3>
+          <form>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <label for="device">Device Model</label>
+              <input type="text" id="device" placeholder="TechGadget Pro X">
+            </div>
+            <div class="form-group">
+              <label for="issue">Describe Your Issue</label>
+              <textarea id="issue" placeholder="Please describe your issue in detail..."></textarea>
+            </div>
+            <button type="submit" class="purchase-button">Submit Request</button>
+          </form>
+        </div>
+        <div class="support-info">
+          <h3>Frequently Asked Questions</h3>
+          <div class="faq-list">
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                How do I reset my TechGadget Pro?
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                To reset your device, go to Settings > System > Reset Options. Choose between resetting settings or performing a full factory reset. Make sure to back up your data first.
+              </div>
+            </div>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                What's the warranty period for TechGadget Pro devices?
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                All TechGadget Pro devices come with a 24-month limited warranty covering manufacturing defects. The warranty does not cover accidental damage or normal wear and tear.
+              </div>
+            </div>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                How can I improve my device's battery life?
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                Try these tips: 1) Enable Battery Saver mode, 2) Reduce screen brightness, 3) Close unused apps running in the background, 4) Disable unnecessary location services, 5) Update to the latest software version.
+              </div>
+            </div>
+            <div class="faq-item" onclick="toggleFAQ(this)">
+              <div class="faq-question">
+                Where can I find replacement parts and accessories?
+                <span>+</span>
+              </div>
+              <div class="faq-answer">
+                Genuine TechGadget Pro accessories and replacement parts are available through our official website and authorized retailers. We recommend using only genuine parts to ensure compatibility and safety.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Developer Tools Section -->
+  <section id="developer" class="developer">
+    <div class="container">
+      <h2>Developer Resources</h2>
+      <p>Build amazing apps and integrations for TechGadget Pro with our comprehensive developer tools and APIs.</p>
+      <div class="developer-grid">
+        <div class="developer-card">
+          <div class="developer-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2888/2888407.png" alt="SDK">
+          </div>
+          <h3 class="developer-title">TechGadget Pro SDK</h3>
+          <p>Access our complete Software Development Kit to create apps optimized for TechGadget Pro hardware and software features.</p>
+          <a href="#" class="download-button">Download SDK</a>
+        </div>
+        <div class="developer-card">
+          <div class="developer-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2888/2888454.png" alt="API">
+          </div>
+          <h3 class="developer-title">Device API</h3>
+          <p>Integrate with TechGadget Pro's advanced hardware capabilities through our comprehensive API documentation.</p>
+          <a href="#" class="download-button">View API Docs</a>
+        </div>
+        <div class="developer-card">
+          <div class="developer-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2888/2888405.png" alt="Design">
+          </div>
+          <h3 class="developer-title">Design Resources</h3>
+          <p>UI kits, icon packs, and design guidelines to create beautiful, consistent apps for the TechGadget Pro ecosystem.</p>
+          <a href="#" class="download-button">Download Resources</a>
+        </div>
+        <div class="developer-card">
+          <div class="developer-icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/2888/2888427.png" alt="Community">
+          </div>
+          <h3 class="developer-title">Developer Community</h3>
+          <p>Connect with other developers, share knowledge, and get support from our technical team and community experts.</p>
+          <a href="#" class="download-button">Join Community</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>Have questions or feedback? We'd love to hear from you.</p>
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Get in Touch</h3>
+          <div class="contact-details">
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059518.png" alt="Email">
+              </div>
+              <div>
+                <h4>Email</h4>
+                <p>support@techgadgetpro.com</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059501.png" alt="Phone">
+              </div>
+              <div>
+                <h4>Phone</h4>
+                <p>+1 (800) 555-0199</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3059/3059528.png" alt="Address">
+              </div>
+              <div>
+                <h4>Headquarters</h4>
+                <p>123 Tech Avenue, Silicon Valley, CA 94025, USA</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form">
+          <h3>Send Us a Message</h3>
+          <form>
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" placeholder="Your Name">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" placeholder="Subject">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="submit" class="purchase-button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-container">
+        <div class="footer-about">
+          <div class="footer-logo">TechGadget Pro</div>
+          <p>Innovating the future of technology with cutting-edge devices designed to enhance your digital life.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="20">
+            </a>
+            <a href="#" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="20">
+            </a>
+            <a href="#" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="20">
+            </a>
+            <a href="#" class="social-link">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="YouTube" width="20">
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="#">TechGadget Pro X</a></li>
+            <li><a href="#">TechGadget Pro Air</a></li>
+            <li><a href="#">TechGadget Pro Max</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li><a href="#">Software</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Repairs</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Newsroom</a></li>
+            <li><a href="#">Investors</a></li>
+            <li><a href="#">Sustainability</a></li>
+          </ul>
+        </div>
+        <div class="footer-newsletter">
+          <h4>Newsletter</h4>
+          <p>Subscribe to get the latest news, offers, and product updates.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email">
+            <button type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 TechGadget Pro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Payment Method Selection
+    function selectPaymentMethod(method) {
+      document.querySelectorAll('.payment-option').forEach(option => {
+        option.classList.remove('active');
+      });
+      event.currentTarget.classList.add('active');
+    }
+
+    // Process Payment
+    function processPayment() {
+      const cardNumber = document.getElementById('card-number').value;
+      const expiryDate = document.getElementById('expiry-date').value;
+      const cvv = document.getElementById('cvv').value;
+      const cardName = document.getElementById('card-name').value;
+
+      if (!cardNumber || !expiryDate || !cvv || !cardName) {
+        alert('Please fill in all payment details.');
+        return;
+      }
+
+      // Simulate payment processing
+      alert('Payment processed successfully! Your TechGadget Pro will be shipped soon.');
+    }
+
+    // FAQ Toggle
+    function toggleFAQ(item) {
+      item.classList.toggle('active');
+    }
+
+    // Smooth Scrolling for Navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    // Product Thumbnail Click
+    document.querySelectorAll('.product-thumbnail').forEach(thumbnail => {
+      thumbnail.addEventListener('click', function() {
+        const mainImage = document.querySelector('.product-main-image');
+        const thumbImage = this.querySelector('img');
+        mainImage.src = thumbImage.src;
+      });
+    });
+  </script>
+</body>
+</html>
